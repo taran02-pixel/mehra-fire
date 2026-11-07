@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101813">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Drop into Mehra Fire, a fast side-scrolling jetpack arena. Gear up, take on the bots and clear the canyon.">
+  <link rel="canonical" href="https://taran02-pixel.github.io/mehra-fire/">
+  <meta property="og:title" content="Mehra Fire — Drop Into The Arena">
+  <meta property="og:description" content="A fast side-scrolling jetpack arena. Gear up, take on the bots and clear the canyon.">
+  <title>Mehra Fire — Drop Into The Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#101813;--panel:#18241c;--paper:#f4f2e8;--muted:#aab4a9;--lime:#cbf36b;--orange:#ff754a;--line:#344339;--font-display:'Barlow Condensed',Impact,sans-serif;--font-body:'DM Sans',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--font-body);overflow-x:hidden}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}.wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .topbar{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.wordmark{display:flex;align-items:center;gap:11px;font:800 23px var(--font-display);letter-spacing:.7px}.mark{width:35px;height:35px;display:grid;place-items:center;background:var(--lime);color:var(--ink);clip-path:polygon(12% 0,100% 0,88% 100%,0 100%);font:900 17px var(--font-display)}.wordmark b{color:var(--orange)}.nav{display:flex;gap:34px;align-items:center;color:#c0c9bf;font-size:13px;font-weight:600}.nav a:hover{color:var(--lime)}.nav .nav-play{padding:11px 17px;background:var(--lime);color:var(--ink);font-weight:800;letter-spacing:.5px}
+    .hero{position:relative;min-height:650px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:20px;padding:55px 0 70px}.hero:before{content:'';position:absolute;inset:0 -20vw;pointer-events:none;background:radial-gradient(ellipse at 73% 47%,#a1bd4921,transparent 43%)}.hero-copy{position:relative;z-index:1;padding:18px 0}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--lime);font-size:11px;line-height:1;font-weight:800;letter-spacing:2.5px;text-transform:uppercase}.eyebrow:before{content:'';width:28px;height:2px;background:var(--orange)}h1{margin:18px 0 12px;font:900 clamp(76px,11vw,142px)/.77 var(--font-display);letter-spacing:-2px;text-transform:uppercase}h1 span{display:block;color:var(--orange);margin-top:12px}.hero-copy p{max-width:425px;margin:26px 0 28px;color:#bdc5bb;font-size:16px;line-height:1.7}.actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.primary{min-height:54px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--lime);color:var(--ink);font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 78%,91% 100%,0 100%);transition:transform .2s,background .2s}.primary:hover{transform:translateY(-3px);background:#ddff88}.primary svg{width:16px}.text-link{color:#e0e6dc;font-size:13px;font-weight:700}.text-link span{color:var(--orange);margin-left:6px}.hero-note{margin-top:31px;display:flex;gap:18px;color:#849187;font-size:11px;font-weight:600;letter-spacing:.5px}.hero-note span{display:flex;align-items:center;gap:7px}.hero-note i{width:5px;height:5px;border-radius:50%;background:var(--lime)}
+    .arena-art{position:relative;min-width:0;aspect-ratio:1.12/1;display:grid;place-items:center}.scene{width:112%;height:auto;overflow:visible;filter:drop-shadow(0 22px 28px #0007)}.scene .float{animation:float 3.2s ease-in-out infinite}.scene .glow{animation:glow 1.7s ease-in-out infinite alternate}.scene .cloud{animation:drift 18s linear infinite}.art-label{position:absolute;right:1%;top:13%;font:700 11px var(--font-display);letter-spacing:2px;color:#c9d1c2;transform:rotate(90deg) translateX(100%);transform-origin:right top}.art-frame{position:absolute;inset:6% 1% 5%;border:1px solid #f4f2e81b;transform:rotate(-2deg);pointer-events:none}.art-index{position:absolute;bottom:1%;left:7%;font:700 11px var(--font-display);letter-spacing:2px;color:#7e8d7f}.art-index b{color:var(--lime);font-size:20px;margin-right:8px}
+    .ticker{border-block:1px solid var(--line);overflow:hidden;background:#141e17}.ticker-track{display:flex;width:max-content;animation:ticker 28s linear infinite}.ticker span{padding:17px 25px;font:800 14px var(--font-display);letter-spacing:2px;color:#d9e0d3;white-space:nowrap}.ticker span:after{content:'✦';color:var(--orange);margin-left:50px}
+    .section{padding:105px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:35px}.section-kicker{font-size:11px;color:var(--lime);font-weight:800;letter-spacing:2px;text-transform:uppercase}.section h2{max-width:570px;margin:11px 0 0;font:800 clamp(42px,6vw,72px)/.91 var(--font-display);letter-spacing:-.3px;text-transform:uppercase}.section-intro{max-width:330px;margin:0;color:var(--muted);font-size:14px;line-height:1.7}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{position:relative;min-height:255px;padding:24px;background:var(--panel);border:1px solid #ffffff0c;overflow:hidden}.feature:after{content:'';position:absolute;width:145px;height:145px;right:-45px;bottom:-65px;border:1px solid #d4f07c26;border-radius:50%;box-shadow:0 0 0 17px #d4f07c09,0 0 0 35px #d4f07c06}.feature-icon{width:44px;height:44px;margin-bottom:36px;display:grid;place-items:center;color:var(--lime);border:1px solid #c9f06b50;background:#c9f06b0d}.feature-icon svg{width:23px;height:23px}.feature h3{margin:0 0 9px;font:800 25px var(--font-display);letter-spacing:.6px;text-transform:uppercase}.feature p{position:relative;z-index:1;max-width:300px;margin:0;color:#aeb9ac;font-size:13px;line-height:1.65}
+    .play-section{padding:0 0 100px}.play-card{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:35px;padding:44px 48px;background:linear-gradient(110deg,#263824,#1c2a1f 64%,#31261d);border:1px solid #d4f07c36;overflow:hidden}.play-card:after{content:'FIRE';position:absolute;right:22%;top:-48px;color:#ffffff08;font:900 210px/.9 var(--font-display);pointer-events:none}.play-card h2{position:relative;z-index:1;margin:10px 0 7px;font:800 clamp(38px,6vw,66px)/.9 var(--font-display);text-transform:uppercase}.play-card p{position:relative;z-index:1;margin:0;color:#c0c9bb;font-size:14px}.play-card .primary{position:relative;z-index:1;white-space:nowrap}
+    .footer{padding:25px 0 34px;border-top:1px solid #ffffff16;display:flex;align-items:center;justify-content:space-between;color:#859084;font-size:11px}.footer .wordmark{font-size:18px;color:var(--paper)}.footer .mark{width:27px;height:27px;font-size:13px}.footer-note{letter-spacing:.5px}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes glow{from{opacity:.55}to{opacity:1}}@keyframes drift{from{transform:translateX(-25px)}to{transform:translateX(35px)}}@keyframes ticker{to{transform:translateX(-50%)}}
+    @media(max-width:800px){.wrap{width:min(100% - 36px,600px)}.topbar{height:68px}.nav{gap:17px}.nav a:not(.nav-play){display:none}.hero{grid-template-columns:1fr;gap:0;padding:57px 0 54px;min-height:auto}.hero-copy{padding:0}.hero-copy p{max-width:490px}.arena-art{width:min(100%,590px);margin:-3px auto 0;aspect-ratio:1.2/1}.scene{width:108%}.art-label{right:0}.hero-note{margin-top:24px}.section{padding:76px 0}.section-head{display:block}.section-intro{margin-top:16px}.feature-grid{grid-template-columns:1fr;gap:10px}.feature{min-height:195px;padding:22px}.feature-icon{margin-bottom:22px}.play-section{padding-bottom:72px}.play-card{grid-template-columns:1fr;padding:31px 25px;gap:23px}.play-card:after{right:-2%;top:0}.play-card .primary{justify-self:start}.footer{gap:14px;align-items:flex-start;flex-direction:column}}
+    @media(max-width:420px){.wrap{width:calc(100% - 28px)}.wordmark{font-size:20px}.hero{padding-top:48px}h1{font-size:80px}.hero-copy p{font-size:14px}.hero-note{gap:10px;flex-wrap:wrap}.arena-art{margin-top:8px}.ticker span{padding-inline:18px}.ticker span:after{margin-left:35px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="wordmark" href="#top" aria-label="Mehra Fire home"><span class="mark">M</span><span>MEHRA <b>FIRE</b></span></a>
+    <nav class="nav" aria-label="Main navigation"><a href="#features">The arena</a><a href="#controls">Controls</a><a class="nav-play" href="play.html">PLAY NOW ↗</a></nav>
+  </header>
+  <main id="top">
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Side-view jetpack arena</div>
+        <h1>Drop in.<span>Light up.</span></h1>
+        <p>Gear up, fire across the canyon and take the high ground. Mehra Fire is a quick browser arena where every pickup can turn the fight.</p>
+        <div class="actions"><a class="primary" href="play.html"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3.8c0-.8.9-1.3 1.6-.9l9 5.2a1 1 0 0 1 0 1.8l-9 5.2c-.7.4-1.6-.1-1.6-.9V3.8Z"/></svg>Enter the arena</a><a class="text-link" href="#features">Explore the game <span>↓</span></a></div>
+        <div class="hero-note"><span><i></i>Play in your browser</span><span><i></i>Desktop + touch controls</span></div>
+      </div>
+      <div class="arena-art" aria-label="Illustration of a jetpack fighter above a rocky canyon">
+        <div class="art-frame"></div><div class="art-label">SECTOR 07 · THE QUARRY</div>
+        <svg class="scene" viewBox="0 0 680 570" role="img" aria-hidden="true">
+          <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#293b31"/><stop offset="1" stop-color="#66764b"/></linearGradient><linearGradient id="sun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1ed98"/><stop offset="1" stop-color="#e68d56"/></linearGradient><linearGradient id="cliff" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a99169"/><stop offset="1" stop-color="#524c3b"/></linearGradient><linearGradient id="armor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7f77b"/><stop offset="1" stop-color="#718b3f"/></linearGradient><filter id="blur"><feGaussianBlur stdDeviation="20"/></filter></defs>
+          <rect x="25" y="35" width="625" height="475" rx="4" fill="url(#sky)"/>
+          <circle cx="498" cy="140" r="76" fill="#f9bb6b" opacity=".16" filter="url(#blur)"/><circle cx="498" cy="140" r="32" fill="url(#sun)"/>
+          <g class="cloud" fill="#d9d8b5" opacity=".16"><path d="M82 154c0-15 13-26 28-25 8-21 43-19 48 4 19-5 34 11 31 27H82Z"/><path d="M365 205c0-12 10-21 22-20 6-17 34-16 38 4 15-4 27 9 24 22H365Z"/></g>
+          <path d="M25 344 133 194l83 90 99-151 111 163 86-90 138 142v162H25Z" fill="#536149"/><path d="m133 194 83 90-34-16 20-8-34 2-15-20-12 12-18-6-15 12-29 1Z" fill="#9a9b71" opacity=".72"/><path d="m315 133 111 163-52-28 26-14-32 2-23-23-20 11-13-16-23 4-21-20Z" fill="#b0a27d" opacity=".78"/><path d="M25 367 168 263l105 96 102-114 111 133 80-66 84 58v140H25Z" fill="#3c4d3d"/><path d="M25 415 170 353l95 47 99-83 101 72 104-59 81 42v127H25Z" fill="url(#cliff)"/>
+          <path d="m25 440 92-35 45 18-60 20 91 21-51 27-117 0Zm478-56 62-21 82 43v79h-99l-42-39 56-15Z" fill="#b2a17a" opacity=".48"/>
+          <path d="M25 469h625v41H25Z" fill="#253b2a"/><path d="M25 469h625v7H25Z" fill="#9caa69"/><path d="M73 489h72m47 0h53m81 0h57m45 0h42m47 0h62" stroke="#c5b083" stroke-width="3" opacity=".55"/>
+          <g class="float" transform="translate(335 292) rotate(-13)"><path d="m-17 30-6 43 18 8 14-41Z" fill="#343d33"/><path d="m14 29 18 36-12 14-24-40Z" fill="#536343"/><path d="M-25-6q4-35 40-26l19 26-11 35q-27 15-51-4Z" fill="url(#armor)" stroke="#e5f8a5" stroke-width="3"/><path d="M-3-26q20-15 35 3l-5 22-35 3-10-14Z" fill="#d6d6b5"/><path d="m20-6 37 5 8 9-49 3Z" fill="#26322d"/><path d="m52 1 16 1-2 7-17-1Z" fill="#ffad56"/><path d="m-25-11-17 26 12 5 18-22Z" fill="#a7ba72"/><path d="M-8 47q-1 16-13 42m34-39q14 14 17 32" fill="none" stroke="#c3d78d" stroke-width="8" stroke-linecap="round"/><path d="M-26 28h-13v35h17l10-24Zm40 0h14l12 35H22L9 43Z" fill="#667c48" stroke="#b7d46c" stroke-width="2"/><path class="glow" d="M-31 60q-10 30 2 53l9-34 4-18Zm46 1q-7 29 12 48l1-37-6-12Z" fill="#ff754a"/><path d="M-28 89q-5 18 4 26l4-18Zm47 5q1 15 13 20l-5-19Z" fill="#ffe28c"/></g>
+          <g class="glow"><path d="m441 302 68-24" stroke="#d9f56b" stroke-width="3"/><circle cx="518" cy="274" r="5" fill="#ff7949"/><path d="m229 258-38-22" stroke="#f9b95e" stroke-width="2" opacity=".7"/></g>
+          <g transform="translate(137 424)"><rect x="-20" y="-17" width="40" height="34" rx="3" fill="#705637" stroke="#bd9456" stroke-width="3"/><path d="M-14-12 14 12M14-12-14 12" stroke="#bd9456" stroke-width="4"/><path d="M-16-3h32" stroke="#d5aa65" stroke-width="2"/></g>
+          <g transform="translate(523 439)"><circle r="19" fill="#d1f46c" opacity=".18"/><path d="m-13 4 26-8v7l-26 8Zm3-7h15l5 3-5 3h-15Z" fill="#d7ef86" stroke="#19251e" stroke-width="2"/></g>
+          <path d="M25 35h625v475H25Z" fill="none" stroke="#e5edce" stroke-opacity=".34"/>
+        </svg>
+        <div class="art-index"><b>01</b> ROCKY CANYON / JETPACK READY</div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>JETPACK UP</span><span>LOCK ON</span><span>GEAR UP</span><span>TAKE THE HIGH GROUND</span><span>JETPACK UP</span><span>LOCK ON</span><span>GEAR UP</span><span>TAKE THE HIGH GROUND</span></div></div>
+    <section class="wrap section" id="features">
+      <div class="section-head"><div><div class="section-kicker">The arena is yours</div><h2>One canyon.<br>Plenty of ways to fight.</h2></div><p class="section-intro">Move through a rocky battlefield, grab what you need and keep moving. The bots are after the same gear you are.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 14h14l2 4H3l2-4Z"/><path d="M8 14V8l4-3 4 3v6M10 9h4M7 18l-1 3m12-3 1 3"/><path d="m9 5-2-3m8 3 2-3"/></svg></div><h3>Fuel the flight</h3><p>Boost across gaps and climb onto the canyon platforms with your jetpack. Save enough fuel to get out of trouble.</p></article>
+        <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9h11l2 2h5v5h-4l-2 2H9l-2-2H3z"/><path d="M6 9V6h7v3M10 18v3m5-10h.01"/><circle cx="5" cy="13" r="1"/></svg></div><h3>Find your firepower</h3><p>Pick up weapons scattered across the map, from close-range blasts to long-range shots. Bots can gear up too.</p></article>
+        <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 20 6v5c0 5-3.2 8.1-8 10-4.8-1.9-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></div><h3>Clear the sector</h3><p>Watch your health, collect medkits and take down every bot to earn XP and level up after each match.</p></article>
+      </div>
+    </section>
+    <section class="wrap play-section" id="controls">
+      <div class="play-card"><div><div class="section-kicker">Ready when you are</div><h2>See you in the arena.</h2><p>Use keyboard and mouse on desktop, or touch controls on your phone.</p></div><a class="primary" href="play.html">Play Mehra Fire <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><a class="wordmark" href="#top"><span class="mark">M</span><span>MEHRA <b>FIRE</b></span></a><div class="footer-note">A browser game by Mehra Games · Built for quick arena runs</div><a href="play.html">Enter the arena ↗</a></footer>
+</body>
+</html>
+
+
+
+
