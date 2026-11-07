@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://taran02-pixel.github.io/mehra-fire/sitemap.xml
+
